@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FXAppContextSwift"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "FX启动配置框架"
 
   s.homepage     = "https://github.com/zqw87699/FXAppContextSwift"
@@ -19,15 +19,15 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.source_files = 'Classes/*'
-  s.public_header_files = 'Classes/*.h'
+s.subspec 'Core' do |core|
+    core.source_files = 'Classes/Core/*'
+    core.dependency 'FXAppContextSwift/API'
+    core.dependency 'ReactiveCocoa', '5.0.0'
+    core.dependency 'ReachabilitySwift', '3'
+end
 
 s.subspec 'API' do |api|
     api.source_files = 'Classes/API/*'
-    api.public_header_files = 'Classes/API/*.h'
 end
-
-  s.dependency 'ReactiveCocoa', '5.0.0'
-  s.dependency 'ReachabilitySwift', '3'
 
 end
