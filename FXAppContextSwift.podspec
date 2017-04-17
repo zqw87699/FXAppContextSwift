@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/zqw87699/FXAppContextSwift.git", :tag => "#{s.version}"}
 
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
 
   s.frameworks = "Foundation", "UIKit"
 
@@ -20,14 +20,14 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
 s.subspec 'Core' do |core|
-    core.source_files = 'Classes/Core/*.{swift}'
+    core.source_files = 'Classes/Core/*.swift'
     core.dependency 'FXAppContextSwift/API'
     core.dependency 'ReactiveCocoa', '5.0.0'
     core.dependency 'ReachabilitySwift', '3'
 end
 
 s.subspec 'API' do |api|
-    api.source_files = 'Classes/API/*.{swift}'
+    api.source_files = 'Classes/API/*.swift'
 end
 
 end
