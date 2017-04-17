@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc protocol IFXLaunchProtocol {
+@objc public protocol IFXLaunchProtocol {
     
     func registerApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
     

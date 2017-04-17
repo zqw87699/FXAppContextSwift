@@ -14,23 +14,23 @@ import ReachabilitySwift
 /**
  *  用户登录通知
  */
-let FXUserLoginedNotification = NSNotification.Name("FXUserLoginedNotification")
+public let FXUserLoginedNotification = NSNotification.Name("FXUserLoginedNotification")
 /**
  *  用户注销通知
  */
-let FXUserLogoutNotification = NSNotification.Name("FXUserLogoutNotification")
+public let FXUserLogoutNotification = NSNotification.Name("FXUserLogoutNotification")
 /**
  *  网络环境变化
  */
-let FXNetworkChangedNotification = NSNotification.Name("FXNetworkChangedNotification")
+public let FXNetworkChangedNotification = NSNotification.Name("FXNetworkChangedNotification")
 
-class FXSession:IFXLaunchProtocol{
+public class FXSession:IFXLaunchProtocol{
     
     var refLock:NSLock?
     
-    static let sharedInstance = FXSession()
+    public static let sharedInstance = FXSession()
     
-    func registerApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
+    public func registerApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
         refLock = NSLock.init()
         
         FXNetworkContext.sharedInstance.singleInit()
@@ -43,14 +43,14 @@ class FXSession:IFXLaunchProtocol{
         }
     }
     
-    func logined(){
+    public func logined(){
         refLock?.lock()
         
         NotificationCenter.default.post(name: FXUserLoginedNotification, object: self)
         refLock?.unlock()
     }
     
-    func logout(){
+    public func logout(){
         refLock?.lock()
         NotificationCenter.default.post(name: FXUserLogoutNotification, object: self)
         refLock?.unlock()

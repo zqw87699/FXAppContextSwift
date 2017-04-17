@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class FXAppContext{
+public class FXAppContext{
     //example:FXAppContext.sharedInstance.registerApp([FXSession.sharedInstance], launchOptions)
     
-    static let sharedInstance = FXAppContext()
+    public static let sharedInstance = FXAppContext()
     
-    func registerApp(_ launchContexts:Array<IFXLaunchProtocol>,_ options:[UIApplicationLaunchOptionsKey: Any]?){
+    public func registerApp(_ launchContexts:Array<IFXLaunchProtocol>,_ options:[UIApplicationLaunchOptionsKey: Any]?){
         for context in launchContexts{
             context.registerApp(options)
             if ((context.childs?.count) != nil) {

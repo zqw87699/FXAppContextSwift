@@ -9,21 +9,21 @@
 import Foundation
 import ReachabilitySwift
 
-class FXNetworkContext{
+public class FXNetworkContext{
     
-    static let sharedInstance = FXNetworkContext()
+    public static let sharedInstance = FXNetworkContext()
     
     var reachability: Reachability?
     
-    func isConnection() ->Bool {
+    public func isConnection() ->Bool {
         return currentStatus() != Reachability.NetworkStatus.notReachable
     }
     
-    func currentStatus() ->Reachability.NetworkStatus{
+    public func currentStatus() ->Reachability.NetworkStatus{
         return (reachability?.currentReachabilityStatus)!
     }
     
-    func singleInit(){
+    public func singleInit(){
         reachability = Reachability()
         do {
             try reachability?.startNotifier()
