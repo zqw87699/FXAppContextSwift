@@ -14,5 +14,5 @@ import UIKit
     func registerApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
     
     @objc optional
-    var childs:[IFXLaunchProtocol]{get}
+    var childs:Array<IFXLaunchProtocol>{get}
 }

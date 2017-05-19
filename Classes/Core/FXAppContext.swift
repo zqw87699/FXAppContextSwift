@@ -17,7 +17,7 @@ public class FXAppContext{
     public func registerApp(_ launchContexts:Array<IFXLaunchProtocol>,_ options:[UIApplicationLaunchOptionsKey: Any]?){
         for context in launchContexts{
             context.registerApp(options)
-            if ((context.childs?.count) != nil) {
+            if context.childs != nil && (context.childs?.count)! > 0 {
                 self.registerApp(context.childs!, options)
             }
         }
